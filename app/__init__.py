@@ -1,0 +1,1 @@
+"""Synthetic AppSec training package."""
