@@ -1,5 +1,8 @@
-"""Intentional demo finding: command injection pattern. Never run with real input."""
-import os
+"""Remediated demo: avoid shell interpretation."""
+import subprocess
 def check_host(host):
-    # Deliberately unsafe training example; not called by the application.
-    return os.popen("ping -c 1 " + host).read()
+    # In real code, validate host against an allowlist before use.
+    return subprocess.run(
+        ["ping", "-c", "1", host],
+        capture_output=True, text=True, check=False, timeout=5
+    ).stdout

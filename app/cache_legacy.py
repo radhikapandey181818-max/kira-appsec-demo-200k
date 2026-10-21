@@ -1,5 +1,4 @@
-"""Intentional demo finding: unsafe deserialization."""
-import pickle
+"""Remediated demo: use JSON for untrusted serialized data."""
+import json
 def load_cached_object(blob):
-    # Never deserialize untrusted bytes with pickle.
-    return pickle.loads(blob)
+    return json.loads(blob)

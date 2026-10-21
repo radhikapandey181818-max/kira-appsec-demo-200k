@@ -1,4 +1,6 @@
-"""Intentional demo finding: SQL injection pattern."""
+"""Remediated demo: parameterized SQL."""
 def find_user(conn, username):
-    query = "SELECT id, username FROM users WHERE username = '%s'" % username
-    return conn.execute(query).fetchall()
+    return conn.execute(
+        "SELECT id, username FROM users WHERE username = ?",
+        (username,)
+    ).fetchall()

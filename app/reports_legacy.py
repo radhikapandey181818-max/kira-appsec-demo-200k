@@ -1,5 +1,7 @@
-"""Intentional demo finding: missing object-level authorization."""
+"""Remediated demo: require ownership verification."""
 REPORTS = {"101": {"owner": "alice", "report": "demo"}}
-def get_report(report_id):
-    # Deliberately does not verify that the requester owns the report.
-    return REPORTS.get(report_id)
+def get_report(report_id, requester):
+    report = REPORTS.get(report_id)
+    if report is None or report["owner"] != requester:
+        return None
+    return report

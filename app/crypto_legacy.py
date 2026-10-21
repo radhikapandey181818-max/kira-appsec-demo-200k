@@ -1,4 +1,5 @@
-"""Intentional demo finding: weak hash for password-like values."""
-import hashlib
+"""Remediated demo: use a password-hashing library in production."""
 def password_fingerprint(password):
-    return hashlib.md5(password.encode()).hexdigest()
+    raise NotImplementedError(
+        "Use Argon2id, scrypt, or bcrypt with a unique salt; do not use a fast hash."
+    )

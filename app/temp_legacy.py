@@ -1,3 +1,4 @@
-"""Intentional demo finding: predictable temporary filename."""
-def temporary_path(user_id):
-    return "/tmp/report_" + str(user_id) + ".tmp"
+"""Remediated demo: use secure temporary-file APIs."""
+import tempfile
+def create_temporary_file():
+    return tempfile.NamedTemporaryFile(prefix="report_", delete=False)
