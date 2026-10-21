@@ -23,3 +23,8 @@ This is a non-production training artifact. Do not deploy it, use real secrets, 
 - `remediate-demo-vulnerabilities`: fixes those examples.
 
 The generated filler files are not intended to represent production-quality application logic.
+
+
+## Branches for the demonstration
+- Default branch: intentionally vulnerable examples for the first scan.
+- `remediation` branch: safer alternatives for comparison and re-scanning.
